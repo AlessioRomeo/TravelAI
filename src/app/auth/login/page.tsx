@@ -1,5 +1,4 @@
-import Image from "next/image";
-import styles from "./page.module.scss";
+import styles from "../page.module.scss";
 import Link from "next/link";
 
 export default function Home() {
@@ -7,10 +6,12 @@ export default function Home() {
     <main className={styles.main}>
       <form>
         <h1>Travel AI</h1>
-        <input type="text" placeholder={"Enter email..."}/>
+        <input type="text" placeholder={"Enter username..."}/>
         <input type="password" placeholder={"Enter password..."}/>
-        <button>Login</button>
-        <Link href={"/login"}>Sign up if you don&apos;t have an account</Link>
+        <Link href={"/home"} passHref={true} legacyBehavior={true}>
+            <button>Login</button>
+        </Link>
+        <Link href={"/auth/signup"}>Sign up if you don&apos;t have an account</Link>
       </form>
     </main>
   );

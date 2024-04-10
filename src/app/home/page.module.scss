@@ -1,0 +1,50 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  & > nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(46, 34,10);
+    height: 90px;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    & > a {
+      color: rgb(206, 179, 160);
+      text-decoration: none;
+    }
+  }
+  & > .history {
+    max-height: 77%;
+    width: 100%;
+    padding-block: 50px;
+    box-sizing: border-box;
+    flex: 1;
+    overflow-y: scroll;
+  }
+  & > .generate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    background-color: rgb(46, 34,10);
+    & > a {
+      background-color: rgb(255, 184, 107);
+      font-size: 20px;
+      text-decoration: none;
+      color: black;
+      padding-block: 30px;
+      padding-inline: 60px;
+      border-radius: 10px;
+      cursor: pointer;
+      &:hover {
+        background-color: rgb(241, 170, 92);
+      }
+    }
+  }
+}
