@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './page.module.scss';
 import Link from "next/link";
-import ItineraryDay from "@/app/itinerary/(component)/ItineraryDay";
-import Chat from "@/app/itinerary/(component)/Chat";
+import ItineraryDay from "@/app/itinerary/(components)/ItineraryDay";
+import Chat from "@/app/itinerary/(components)/Chat";
 
 function Page() {
     return (
