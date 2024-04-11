@@ -21,10 +21,10 @@
   & > .history {
     max-height: 77%;
     width: 100%;
-    padding-block: 50px;
     box-sizing: border-box;
     flex: 1;
     overflow-y: scroll;
+    margin-block: 20px;
   }
   & > .generate {
     display: flex;
@@ -38,6 +38,7 @@
       font-size: 20px;
       text-decoration: none;
       color: black;
+      font-weight: 500;
       padding-block: 30px;
       padding-inline: 60px;
       border-radius: 10px;

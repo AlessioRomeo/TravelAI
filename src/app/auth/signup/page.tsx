@@ -10,7 +10,7 @@ export default function Home() {
         <input type="text" placeholder={"Enter username..."}/>
         <input type="password" placeholder={"Enter password..."}/>
         <button>Login</button>
-        <Link href={"/auth/login"}>Sign up if you don&apos;t have an account</Link>
+        <Link href={"/auth/login"}>Login if you have an account</Link>
       </form>
     </main>
   );
