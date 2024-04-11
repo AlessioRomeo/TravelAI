@@ -33,6 +33,7 @@ function Page() {
                     <h2>6. Do you prefer walking or use transportation?</h2>
                     <input type="text"/>
                 </div>
+
                 <button>SUBMIT</button>
             </form>
         </main>
