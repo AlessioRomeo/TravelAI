@@ -23,7 +23,11 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
   line-height: 1;
-  background-color: rgb(206, 179, 160);
+  background-image: url("/background.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  //background: linear-gradient(45deg, #bcb8f8 0%, #5945b2 100%);
 }
 ol, ul {
   list-style: none;

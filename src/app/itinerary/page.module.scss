@@ -8,13 +8,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(46, 34,10);
+    background-color: rgba(13, 1, 23, 0.6);
+    backdrop-filter: blur(10px);
     height: 90px;
     font-size: 28px;
     font-weight: 600;
     letter-spacing: 1px;
     & > a {
-      color: rgb(206, 179, 160);
+      color: rgb(218, 211, 236);
       text-decoration: none;
     }
   }
