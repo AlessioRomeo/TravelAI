@@ -21,13 +21,13 @@ export async function geminiService(request: string): Promise<string> {
   try {
     // Make the request to the Gemini API
     const chat = model.startChat({
-      history: [], // Assuming no history initially
+      //history: [], // Assuming no history initially
       generationConfig: {
         maxOutputTokens: 100,
       },
     });
 
-    const result = await chat.sendMessage(request);
+    const result = await chat.sendMessage(request.toString());
     const response = await result.response;
     const responseText = response.text();
 

@@ -11,7 +11,7 @@ export default async function generateHandler(req: NextApiRequest, res: NextApiR
     const geminiRequest = await generateGeminiRequest(prompt);
 
     // Make the request to the Gemini API using geminiService
-    const geminiResponse = await geminiService("Hi!"/*geminiRequest*/);
+    const geminiResponse = await geminiService(geminiRequest);
 
     res.status(200).json({ response: geminiResponse });
     console.log(geminiResponse); // Testing
