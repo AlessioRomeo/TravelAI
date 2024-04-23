@@ -26,8 +26,8 @@ export async function geminiService(request: string): Promise<string> {
         maxOutputTokens: 100,
       },
     });
-
-    const result = await chat.sendMessage(request.toString());
+    //console.log("hello here is the format: "+request)
+    const result = await chat.sendMessage(request);
     const response = await result.response;
     const responseText = response.text();
 
