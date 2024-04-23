@@ -23,7 +23,7 @@ export async function geminiService(request: string): Promise<string> {
     const chat = model.startChat({
       //history: [], // Assuming no history initially
       generationConfig: {
-        maxOutputTokens: 100,
+        maxOutputTokens: 400,
       },
     });
     //console.log("hello here is the format: "+request)
