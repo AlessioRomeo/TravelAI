@@ -6,19 +6,21 @@ import Link from "next/link";
 
 function Page() {
     const [formData, setFormData] = useState({
-        destination: "New York",
+        destination: "New York City",
         season: "",
         hobbies: "handball,video games,walking",
         activityPreference: "chill",
-        interests: "no",
+        interests: "n/a",
         // variables added by chandler
         theme: "scenic views",
         time: "11am-7pm",
-        dates: "4/25-4/27",
-        area: "queens",
+        dates: "4/25-4/26",
+        area: "brooklyn",
         budget: "100",
         //was here before
         transportationPreference: "public transportation",
+        //added by Tim
+        locationOfStay: "370 4th Ave, Brooklyn, NY 11215"
     });
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
