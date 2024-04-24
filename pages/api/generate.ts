@@ -15,7 +15,7 @@ export default async function generateHandler(req: NextApiRequest, res: NextApiR
     //original prompt
     const formatInstructions = " could you return it with the format of  time**location name**Transit_Method**Transit_Time**Cost, all this on one line per activity "
     //JSON response prompt
-    const formatInstructions2 = " could you return it in JSON format "
+    const formatInstructions2 = " could you return it in JSON format including the start and end time,location name,transit method, transit time, cost"
     Question = Question + formatInstructions2;
     console.log(Question);
     // Generate the request data for the Gemini API
