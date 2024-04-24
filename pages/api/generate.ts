@@ -7,18 +7,27 @@ import { useState } from 'react';
 export default async function generateHandler(req: NextApiRequest, res: NextApiResponse) {
   try {
     const { prompt } = req.body;
- 
-    let Question = "You are a city guide specialist. You are in task of creating the perfect schedule for the traveler that is going to come to this city, make sure to make it as accurate as possible. The traveler will be traveling on these date(s)" + prompt.dates+
-    " traveling to "+prompt.destination+", and will be staying at " +prompt.locationOfStay+ " with a daily budget of "+prompt.budget+
-    ". With the interests being "+prompt.theme+" and hobbies being "+prompt.hobbies+" and activity preferences being "+prompt.activityPreference+
-    " can you make a complete itinerary for me with at least 3 activities per day. Make it into a JSON file. Inside each day there should be a separate information about the activity such as start time end time, brief description of the activity and cost of the activity. Separately from the activity describe the transit time between the activities or transit to or from home to the activity, in the transit make sure to include the starting location such as exact train station or the corner where the bus stop is located at, which train or bus to take, how many stops to ride and on which one to exit. If the traveler is traveling by car, show approximate time to get from point A to point B according to the expected traffic on that date on that time in that location."
-    const formatInstr = "Make sure to format the JSON file in the following way:"+
-    "divide the file into days. Each day will consist of the activities and transit times, each day should start with the transit to the first location and each day should end with the transit taking the user back home"+
-    ". Each activity should include the following information: name of the activity, start time, end time, description, cost."+
-    " Each transit should include: the number of transit, transit time, start location such as exact bus stop or train stop, transfer location optional if needed, final destination exact bus stop or train stop to get off at, number of stops, and total transit cost."
-    ". If the suer travels by car the transit section should include the following: Start address, end address, expected time of arrival according to the date and time of the day, toll cost if necessary otherwise write 0$"+
-    ". If the optimal route is walking then make sure to include the following: Start address, end address, transit time"+
-    "At the end of the itinerary make sure to write the total cost of each day and the total cost of the whole trip for all days."
+
+    let Question = "You are a city guide specialist, your task is to help the user to create the best route possible and include all the information about it.\
+    The traveler will be available to explore on " + prompt.dates + ", and will be visiting " +
+    prompt.destination + ", will be living at " + prompt.locationOfStay + ". The traveller's will be available between the hours of "+
+    prompt.time + " on the dates above, will have the daily budget of " + prompt.budget + ". Traveller has these hobbies " +
+    prompt.hobbies + ", prefers " + prompt.activityPreference + " activities that are themed " + prompt.theme + ", and will be travelling by " +
+    prompt.transportationPreference + ". \n";
+    const formatInstr = "Make sure to give your response in the JSON format. The structure of your JSON file should be the following:\
+    day number such as 1,2 or 3. In each day there should be at least 3 activities and places to visit that do not include the transit.\
+    Each activity should consist of the following: name of the place or the activity, start time of the activity, end time of the activity\
+    , description of the activity and cost of the activity. Between each activity make sure to include a transit activity which you will also name activity\
+    in this activity you will specify a few things: name that can include the style of transit such as bus subway walking or by car or a few at the same time,\
+     start time of the transfer, end time of the transfer or eta based on the estimated time at that date and time, detailed description of the transfer\
+     that includes on which station or bus stop to get on or get off at and how many to ride, if walking then specify turns needed to make at which streets which way to head \
+     specify the complete route from point A to point B to make sure very turn and direction are listed, \
+     if traveling on a car then specify specific turns needed to make and include information about nearby parking available and their rates, lastly should be \
+     cost of transfer, such as bus or subway fare, estimated cost of gas(assume MPG of 20 is achieved) or tolls if applied. One more thing\
+      make sure in your JSON file, the first activity of the day is the transit from home to the first activity and at the end\
+       of the day the last thing is the transit back home from the latest location. Make sure to not number the activities and just\
+       name them as 'activitiy'. Thank you!"
+       
    Question=Question+formatInstr;
   const geminiRequest = await generateGeminiRequest(Question);
     //console.log("this is the gemini request: "+geminiRequest);

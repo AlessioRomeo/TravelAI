@@ -16,7 +16,7 @@ function Page() {
         time: "11am-7pm",
         dates: "4/25-4/26",
         area: "brooklyn",
-        budget: "100",
+        budget: "300",
         //was here before
         transportationPreference: "public transportation",
         //added by Tim
