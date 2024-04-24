@@ -12,7 +12,10 @@ export default async function generateHandler(req: NextApiRequest, res: NextApiR
     let Question = "Hello on "+prompt.dates+" im going to "+prompt.area+","+prompt.destination+" with a daily budget of "+prompt.budget+". With my interests being "+prompt.theme+" and my hobbies being "+
     prompt.hobbies+" and my activity preferences being "+prompt.activityPreference+" can you make a complete itinerary for me with at least 5 activities per day making sure to include the activity cost and expected transit time from "+prompt.area+","+prompt.destination+
     " that starts from "+prompt.time
-    const formatInstructions2 = " could you return it with the format of  time**location name**Transit_Method**Transit_Time**Cost, all this on one line per activity "
+    //original prompt
+    const formatInstructions = " could you return it with the format of  time**location name**Transit_Method**Transit_Time**Cost, all this on one line per activity "
+    //JSON response prompt
+    const formatInstructions2 = " could you return it in JSON format "
     Question = Question + formatInstructions2;
     console.log(Question);
     // Generate the request data for the Gemini API
