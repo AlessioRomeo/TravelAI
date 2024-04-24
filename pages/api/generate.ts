@@ -8,20 +8,29 @@ export default async function generateHandler(req: NextApiRequest, res: NextApiR
   try {
     const { prompt } = req.body;
     
-    // manually got the values of each variable, because throughout each stage the prompt is displayed as [object][object]
-    let Question = "Hello on "+prompt.dates+" im going to "+prompt.area+","+prompt.destination+" with a daily budget of "+prompt.budget+". With my interests being "+prompt.theme+" and my hobbies being "+
-    prompt.hobbies+" and my activity preferences being "+prompt.activityPreference+" can you make a complete itinerary for me with at least 5 activities per day making sure to include the activity cost and expected transit time from "+prompt.area+","+prompt.destination+
-    " that starts from "+prompt.time
-    //original prompt
-    const formatInstructions = " could you return it with the format of  time**location name**Transit_Method**Transit_Time**Cost, all this on one line per activity "
-    //JSON response prompt
-    const formatInstructions2 = " could you return it in JSON format including the start and end time,location name,transit method, transit time, cost"
-    Question = Question + formatInstructions2;
-    console.log(Question);
-    // Generate the request data for the Gemini API
-  const geminiRequest = await generateGeminiRequest(Question);
-    //console.log("this is the gemini request: "+geminiRequest);
-    // Make the request to the Gemini API using geminiService
+    let Question = "You are a city guide specialist, your task is to help the user to create the best route possible and include all the information about it.\
+    The traveler will be available to explore on " + prompt.dates + ", and will be visiting " +
+    prompt.destination + ", will be living at " + prompt.locationOfStay + ". The traveller's will be available between the hours of "+
+    prompt.time + " on the dates above, will have the daily budget of " + prompt.budget + ". Traveller has these hobbies " +
+    prompt.hobbies + ", prefers " + prompt.activityPreference + " activities that are themed " + prompt.theme + ", and will be travelling by " +
+    prompt.transportationPreference + ". \n";
+    const formatInstr = "Make sure to give your response in the JSON format. The structure of your JSON file should be the following:\
+    day number such as 1,2 or 3. In each day there should be at least 3 activities and places to visit that do not include the transit.\
+    Each activity should consist of the following: name of the place or the activity, start time of the activity, end time of the activity\
+    , description of the activity and cost of the activity. Between each activity make sure to include a transit activity which you will also name activity\
+    in this activity you will specify a few things: name that can include the style of transit such as bus subway walking or by car or a few at the same time,\
+     start time of the transfer, end time of the transfer or eta based on the estimated time at that date and time, detailed description of the transfer\
+     that includes on which station or bus stop to get on or get off at and how many to ride, if walking then specify turns needed to make at which streets which way to head \
+     specify the complete route from point A to point B to make sure very turn and direction are listed, \
+     if traveling on a car then specify specific turns needed to make and include information about nearby parking available and their rates, lastly should be \
+     cost of transfer, such as bus or subway fare, estimated cost of gas(assume MPG of 20 is achieved) or tolls if applied. One more thing\
+      make sure in your JSON file, the first activity of the day is the transit from home to the first activity and at the end\
+       of the day the last thing is the transit back home from the latest location. Make sure to not number the activities and just\
+       name them as 'activitiy'. Thank you!"
+
+       Question=Question+formatInstr;
+    const geminiRequest = await generateGeminiRequest(Question);
+
     const geminiResponse = await geminiService(geminiRequest);
     //testing
     console.log("this is the response: "+'\n'+geminiResponse);
