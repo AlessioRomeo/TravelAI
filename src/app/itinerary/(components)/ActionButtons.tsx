@@ -1,12 +1,13 @@
 import React from 'react';
 import styles from "@/app/itinerary/(components)/actionButtons.module.scss";
+import Link from "next/link";
 
 function ActionButtons() {
     return (
         <div className={styles.container}>
-            <button className={styles.regenerate}>Generate Again</button>
-            <button className={styles.save}>Save</button>
-            <button className={styles.cancel}>Cancel</button>
+            <Link href={"/home"} passHref={true} legacyBehavior={true}>
+                <button className={styles.cancel}>Home</button>
+            </Link>
         </div>
     );
 }

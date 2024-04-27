@@ -2,26 +2,31 @@ import React from 'react';
 import styles from './day.module.scss';
 import ActivityItem from "@/app/itinerary/(components)/ActivityItem";
 import TransitItem from "@/app/itinerary/(components)/TransitItem";
+import {Activity} from "@/api/getItinerary";
 
-function Day({date}:{date: string}) {
+function Day({date, activities}: { date: string, activities: Activity[] }) {
     return (
         <div className={styles.container}>
             <h1>Date: {date}</h1>
-            <ActivityItem name={"Empire State Building Tour"}
-                          description={"Lorem ipsum dolor sit amet, consectetur adipisicing elit. At consequuntur incidunt saepe"}
-                          start={"12:30 PM"}
-                          end={"1:45 PM"}
-            />
-            <TransitItem name={"Subway"}
-                         description={"Lorem ipsum dolor sit amet, consectetur adipisicing elit. At consequuntur incidunt saepe"}
-                         start={"12:30 PM"}
-                         end={"1:45 PM"}
-            />
-            <ActivityItem name={"Empire State Building Tour"}
-                          description={"Lorem ipsum dolor sit amet, consectetur adipisicing elit. At consequuntur incidunt saepe"}
-                          start={"12:30 PM"}
-                          end={"1:45 PM"}
-            />
+            {
+                activities.map((activity, i) => (
+                    activity.activity.includes("Walking") || activity.activity.includes("Subway") || activity.activity.includes("Transit") || activity.activity.includes("Walk") || activity.activity.includes("Taxi") || activity.activity.includes("Bus") || activity.activity.includes("Uber") ? (
+                        <TransitItem key={i}
+                                     name={activity.activity}
+                                     description={activity.description}
+                                     start={activity.startTime}
+                                     end={activity.endTime}
+                        />
+                    ) : (
+                        <ActivityItem key={i}
+                                      name={activity.activity}
+                                      description={activity.description}
+                                      start={activity.startTime}
+                                      end={activity.endTime}
+                        />
+                    )
+                ))
+            }
         </div>
     );
 }
