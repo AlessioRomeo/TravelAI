@@ -40,7 +40,7 @@ export async function generate(prompt) {
                                     // Repeat the format for subsequent days
                                   ]
                                 }
-                                Include at least 3 activities each day without counting the transits. Also in your answer i just want the json code, nothing more, no intro or conclusion. Also do not write the \`\`\` JSON before and after, just plain text`;
+                                Include at least 3 activities each day without counting the transits. Also in your answer i just want the json code, nothing more, no intro or conclusion. Also do not write the \`\`\` JSON before and after, just plain text. In addition do not include the words: uber, walk, walking, subway, bus, transit, taxi in any of the actual activities without considering the transit. You can use those words for activities that are considered transit.`;
 
 
     Question=Question+formatInstr;
