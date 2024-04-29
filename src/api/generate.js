@@ -9,28 +9,28 @@ export async function generate(prompt) {
         " activities, and likes to use " + prompt.transport + " for transportation. The traveler expressed interest in " +
         prompt.interests + " and confirmed traveling alone with a budget of " + prompt.budget + ".";
 
-    const formatInstr = `Provide your itinerary in JSON format, focusing on alternating transit and activity entries. Each day should start with a transit from the accommodation to the first activity and end with a return transit. Include detailed descriptions, directions, and costs for each segment. Here’s the structure for each day, identified by date:
+    const formatInstr = `Provide your itinerary in JSON format, focusing on alternating transit and activity entries. Each day should start with a transit from the accommodation to the first activity and end with a return transit. Include detailed descriptions, directions, and costs for each segment. Here is the sample structure for each day, actual start and end times will vary, be sure to make it as accurate as you can in the real world scenario, identified by date:
 
                                 {
                                   '02/05/24': [
                                     {
                                       'activity': 'Subway to First Activity',
-                                      'startTime': '08:00',
-                                      'endTime': '08:20',
+                                      'startTime': '00:00',
+                                      'endTime': '00:00',
                                       'description': 'Take the subway from the place of stay to the first site, detailing the station names and line.',
                                       'cost': 2.50
                                     },
                                     {
                                       'activity': 'Morning Visit at the Museum',
-                                      'startTime': '08:30',
-                                      'endTime': '10:00',
+                                      'startTime': '00:00',
+                                      'endTime': '00:00',
                                       'description': 'Explore the history and collections at the museum, located at [museum address].',
                                       'cost': 15
                                     },
                                     {
                                       'activity': 'Walk to next activity',
-                                      'startTime': '10:10',
-                                      'endTime': '10:30',
+                                      'startTime': '00:00',
+                                      'endTime': '00:00',
                                       'description': 'A scenic walk along [specific route], detailing landmarks to observe en route.',
                                       'cost': 0
                                     }
