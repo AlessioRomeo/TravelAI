@@ -10,7 +10,7 @@ function Day({date, activities}: { date: string, activities: Activity[] }) {
             <h1>Date: {date}</h1>
             {
                 activities.map((activity, i) => (
-                    activity.activity.includes("Walking") || activity.activity.includes("Subway") || activity.activity.includes("Ferry") || activity.activity.includes("Metromover") || activity.activity.includes("Drive") || activity.activity.includes("Car") || activity.activity.includes("Transit") || activity.activity.includes("Walk") || activity.activity.includes("Taxi") || activity.activity.includes("Bus") || activity.activity.includes("Light Rail")|| activity.activity.includes("Uber") ? (
+                    activity.activity.includes("Walking") || activity.activity.includes("Subway") ||  activity.activity.includes("Metro") || activity.activity.includes("Ferry") || activity.activity.includes("Metromover") || activity.activity.includes("Drive") || activity.activity.includes("Car") || activity.activity.includes("Transit") || activity.activity.includes("Walk") || activity.activity.includes("Taxi") || activity.activity.includes("Bus") || activity.activity.includes("Light Rail")|| activity.activity.includes("Uber") ? (
                         <TransitItem key={i}
                                      name={activity.activity}
                                      description={activity.description}

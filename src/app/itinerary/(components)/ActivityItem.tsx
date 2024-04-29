@@ -6,7 +6,7 @@ import {BsThreeDotsVertical} from "react-icons/bs";
 function ActivityItem({name, description, start, end, cost}: {name: string, description: string, start: string, end: string, cost: number}) {
     return (
         <div className={styles.container}>
-            <Image src={"/empire.png"} alt={"Activity image"} width={200} height={200}/>
+            <Image src={"/activity.png"} alt={"Activity image"} width={200} height={200}/>
             <div>
                 <h1>{name}</h1>
                 <p>{description}</p>
