@@ -15,6 +15,7 @@ export interface ItineraryData {
     days: {[key: string]: Activity[]},
     questionnaire: any,
     destination: string
+    cost: number;
 }
 
 export default async function putItinerary(itinerary: ItineraryData): Promise<boolean> {

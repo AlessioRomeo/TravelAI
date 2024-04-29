@@ -15,6 +15,8 @@ export interface ItineraryData {
     days: {[key: string]: Activity[]};
 }
 
+
+
 export default async function getItinerary(userID: string, itineraryID: string): Promise<ItineraryData|null> {
     let x = await fetch("https://shams.cyruscloud.io/db/get/NYIT-TravelAI.Itineraries", {
         method: 'POST',

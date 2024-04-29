@@ -71,6 +71,7 @@ function Page() {
                 userID: user.id,
                 createdAt: Math.floor(new Date().getTime() / 1000),
                 days: JSON.parse(data),
+                cost: parseInt(formData.budget),
                 destination: formData.destination,
                 questionnaire: formData
             }).then(r => {
@@ -128,7 +129,7 @@ function Page() {
                     <input type="text" name="transport" value={formData.transport} onChange={handleInputChange}/>
                 </div>
                 <div className={styles.question}>
-                    <h2>6. What are your favorite hobbies?</h2>
+                    <h2>6. List down any specific locations/spots you want to visit?</h2>
                     <input type="text" name="hobbies" value={formData.hobbies} onChange={handleInputChange}/>
                 </div>
                 <div className={styles.question}>

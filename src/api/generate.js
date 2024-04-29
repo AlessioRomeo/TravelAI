@@ -5,7 +5,7 @@ export async function generate(prompt) {
     let Question = "You are a city guide specialist tasked with designing an optimal sightseeing route. The traveler will explore " + prompt.destination +
         " on " + prompt.dates + ", staying at " + prompt.area +
         ". He will be available at " + prompt.time + " each day, the traveler has a daily budget of " + prompt.budget +
-        ", he enjoys hobbies like " + prompt.hobbies + ", prefers " + prompt.activityPreference +
+        ", he needs to visit " + prompt.hobbies + ", prefers " + prompt.activityPreference +
         " activities, and likes to use " + prompt.transport + " for transportation. The traveler expressed interest in " +
         prompt.interests + " and confirmed traveling alone with a budget of " + prompt.budget + ".";
 
@@ -34,7 +34,7 @@ export async function generate(prompt) {
                                       'description': 'A scenic walk along [specific route], detailing landmarks to observe en route.',
                                       'cost': 0
                                     }
-                                    // Continue the pattern
+                                    // Continue the pattern until back to where i stay 
                                   ],
                                   '02/06/24': [
                                     // Repeat the format for subsequent days
