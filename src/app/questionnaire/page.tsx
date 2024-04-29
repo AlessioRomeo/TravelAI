@@ -42,12 +42,10 @@ function Page() {
         hobbies: "",
         activityPreference: "",
         interests: "",
-        // variables added by chandler
         time: "",
         dates: "",
         area: "",
         budget: "",
-        //was here before
         company: "",
     });
 
@@ -61,42 +59,31 @@ function Page() {
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        generate(formData).then((data: string) => {
-            if (!user){
-                return
-            }
-            let uuid = v4();
-            putItinerary({
-                id: uuid,
-                userID: user.id,
-                createdAt: Math.floor(new Date().getTime() / 1000),
-                days: JSON.parse(data),
-                cost: parseInt(formData.budget),
-                destination: formData.destination,
-                questionnaire: formData
-            }).then(r => {
-                if (r){
-                    router.push("/home");
+        try {
+            generate(formData).then((data: string) => {
+                if (!user){
+                    return
                 }
-                console.log(r);
-            })
-        });
-        // try {
-        //     const response = await fetch('/api/generate', {
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //         },
-        //         body: JSON.stringify({
-        //             prompt: formData,
-        //         }),
-        //     });
-        //
-        //     const data = await response.json();
-        //     console.log(data); // Handle or display the response as needed
-        // } catch (error) {
-        //     console.error('Error submitting form:', error);
-        // }
+                let uuid = v4();
+                putItinerary({
+                    id: uuid,
+                    userID: user.id,
+                    createdAt: Math.floor(new Date().getTime() / 1000),
+                    days: JSON.parse(data),
+                    cost: parseInt(formData.budget),
+                    destination: formData.destination,
+                    questionnaire: formData
+                }).then(r => {
+                    if (r){
+                        router.push("/home");
+                    }
+                    console.log(r);
+                })
+            });
+        } catch {
+            alert("Failed to generate!")
+        }
+
     };
 
 
