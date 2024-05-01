@@ -36,28 +36,28 @@ export async function generate(prompt) {
           'startTime': '08:00',
           'endTime': '08:45',
           'description': 'Take the subway from the place of stay to the first site, detailing the station names and line.',
-          'cost': 2.75$
+          'cost': 2.75
         },
         {
           'activity': 'Museum of MoMa',
           'startTime': '08:45',
           'endTime': '10:00',
           'description': 'Explore the history and collections at the museum, located at [museum address].',
-          'cost': 15$
+          'cost': 15
         },
         {
           'activity': 'Walk',
           'startTime': '10:00',
           'endTime': '12:30',
           'description': 'Head north towards [street], turn on [street] //continue in the same fashion describing directions to the user',
-          'cost': 0$
+          'cost': 0
         },
         {
           'activity': 'Empire State Building',
           'startTime': '12:30',
           'endTime': '2:00',
           'description': 'Explore the history and collections at the museum, located at [museum address].',
-          'cost': 38$
+          'cost': 38
         }
         //Continue the pattern until there is only enough time left for the user to come back home
       ],
@@ -86,7 +86,8 @@ export async function generate(prompt) {
     16. Make sure the JSON file is readable, ends in an appropriate way and starts appropriately
     17. Make sure you bring the user back home to the starting points at the end of the day
     18. Make sure the transit times are accurate
-    19. When you are describing the cost of activity or transit make sure to put a single $ and not $$`;
+    19. An individual day should always end with a transit that takes the user back to their place of stay
+    20. Make sure the start time of the first transit and the end time of the last transit coincide to the Start and end time of schedule for the day that the user selected`;
     //20. Do not put {} at the end of the JSON File!!!
     //21. If the transit requires several transit types such as taking the subway and then walking, then separate them into two different activities and continue in such same pattern.
     //22. Make sure your itinerary is for all the days that the user requested and fill up the entire time the user gave!!!

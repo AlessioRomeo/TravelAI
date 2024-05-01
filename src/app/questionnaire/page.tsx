@@ -65,24 +65,30 @@ function Page() {
                 if (!user){
                     return
                 }
-                let uuid = v4();
-                putItinerary({
-                    id: uuid,
-                    userID: user.id,
-                    createdAt: Math.floor(new Date().getTime() / 1000),
-                    days: JSON.parse(data),
-                    cost: parseInt(formData.budget),
-                    destination: formData.destination,
-                    questionnaire: formData
-                }).then(r => {
-                    if (r){
-                        router.push("/home");
-                    }
-                    console.log(r);
-                })
+                try {
+                    let days = JSON.parse(data);
+                    let uuid = v4();
+                    putItinerary({
+                        id: uuid,
+                        userID: user.id,
+                        createdAt: Math.floor(new Date().getTime() / 1000),
+                        days: days,
+                        cost: parseInt(formData.budget),
+                        destination: formData.destination,
+                        questionnaire: formData,
+                    }).then(r => {
+                        if (r){
+                            router.push("/home");
+                        }
+                        console.log(r);
+                    })
+                } catch (e) {
+                    console.error("Failed to parse JSON data: ", e);
+                    alert("Failed to process data!");
+                }
             });
         } catch {
-            alert("Failed to generate!")
+            alert("Failed to generate itinerary!")
         }
 
     };

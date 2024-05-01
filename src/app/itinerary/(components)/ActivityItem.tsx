@@ -13,9 +13,9 @@ function ActivityItem({name, description, start, end, cost}: {name: string, desc
                 <p>Cost: ${cost}</p>
             </div>
             <div>
-                <h2>Depart by {start}</h2>
+                <h2>Arrive at {start}</h2>
                 <BsThreeDotsVertical/>
-                <h2>Arrive at {end}</h2>
+                <h2>Depart by {end}</h2>
             </div>
         </div>
     );
