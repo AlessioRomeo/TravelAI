@@ -9,7 +9,7 @@ dotenv.config();
 const configuration = new GoogleGenerativeAI(process.env.API_KEY!);
 
 // Model initialization
-const modelId = "gemini-1.0-pro";
+const modelId = "gemini-pro";
 const model = configuration.getGenerativeModel({ model: modelId });
 
 export async function generateGeminiRequest(prompt: string): Promise<string> {
@@ -23,7 +23,7 @@ export async function geminiService(request: string): Promise<string> {
     const chat = model.startChat({
       //history: [], // Assuming no history initially
       generationConfig: {
-        maxOutputTokens: 4000,
+        maxOutputTokens: 20000,
       },
     });
     //console.log("hello here is the format: "+request)

@@ -47,6 +47,7 @@ function Page() {
         area: "",
         budget: "",
         company: "",
+        food: "",
     });
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -107,7 +108,7 @@ function Page() {
                     <input type="text" name="area" value={formData.area} onChange={handleInputChange}/>
                 </div>
                 <div className={styles.question}>
-                    <h2>4. start and end time of schedule for the day? Example: 11am-7pm</h2>
+                    <h2>4. Start and end time of schedule for the day? Example: 11am-7pm</h2>
                     <input type="text" name="time" value={formData.time} onChange={handleInputChange}/>
                 </div>
 
@@ -124,7 +125,6 @@ function Page() {
                     <input type="text" name="activityPreference" value={formData.activityPreference}
                            onChange={handleInputChange}/>
                 </div>
-                {/*questions added by chandler */}
                 <div className={styles.question}>
                     <h2>8. Are you interested by history, art, etc?</h2>
                     <input type="text" name="interests" value={formData.interests} onChange={handleInputChange}/>
@@ -134,8 +134,12 @@ function Page() {
                     <input type="text" name="budget" value={formData.budget} onChange={handleInputChange}/>
                 </div>
                 <div className={styles.question}>
-                    <h2>Are you by yourself or with other people?</h2>
+                    <h2>10. Are you by yourself or with other people?</h2>
                     <input type="text" name="company" value={formData.company} onChange={handleInputChange}/>
+                </div>
+                <div className={styles.question}>
+                    <h2>11. What type of food you prefer?</h2>
+                    <input type="text" name="food" value={formData.food} onChange={handleInputChange}/>
                 </div>
 
                 <button type="submit">SUBMIT</button>
