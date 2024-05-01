@@ -66,7 +66,7 @@ export async function generate(prompt) {
       ]
     }
     
-    19 Rules you must follow:
+    23 Rules you must follow:
     1. Include a lunch if necessary and make sure it fits with the users preference, here is the users preference in food: ` + prompt.food +
     `
     2.Include at least 3 activities each day not including the transits
@@ -86,11 +86,21 @@ export async function generate(prompt) {
     16. Make sure the JSON file is readable, ends in an appropriate way and starts appropriately
     17. Make sure you bring the user back home to the starting points at the end of the day
     18. Make sure the transit times are accurate
+<<<<<<< Updated upstream
     19. When you are describing the cost of activity or transit make sure to put a single $ and not $$`;
     //20. Do not put {} at the end of the JSON File!!!
     //21. If the transit requires several transit types such as taking the subway and then walking, then separate them into two different activities and continue in such same pattern.
     //22. Make sure your itinerary is for all the days that the user requested and fill up the entire time the user gave!!!
     
+=======
+    19. An individual day should always end with a transit that takes the user back to their place of stay
+    20. Make sure the start time of the first transit and the end time of the last transit coincide to the Start and end time of schedule for the day that the user selected
+    20. Do not put {} at the end of the JSON File!!!
+    21. If the transit requires several transit types such as taking the subway and then walking, then separate them into two different activities and continue in such same pattern.
+    22. Make sure your itinerary is for all the days that the user requested and fill up the entire time the user gave!!!
+    23. Include at least 3 activities each day not including the transits
+    `;
+>>>>>>> Stashed changes
 
 
     //Question=Question;//+formatInstr;
